@@ -10,6 +10,8 @@ num_labels = size(Theta2, 1);
 % You need to return the following variables correctly 
 p = zeros(size(X, 1), 1);
 
+X_one = [ones(m,1), X];
+
 % ====================== YOUR CODE HERE ======================
 % Instructions: Complete the following code to make predictions using
 %               your learned neural network. You should set p to a 
@@ -24,11 +26,11 @@ p = zeros(size(X, 1), 1);
 
 
 
+a2 =[ones(m,1) sigmoid(Theta1 * X_one')'];
 
+a3 =sigmoid(a2 * Theta2');
 
-
-
-
+[x,p] = max(a3,[],2);
 % =========================================================================
 
 
